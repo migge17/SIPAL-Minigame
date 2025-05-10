@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCADE FORKLIFT FURY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="name-entry-modal" class="modal">
+        <div class="modal-content arcade-panel">
+            <h2>OPERATOR LOGIN</h2>
+            <input type="text" id="playerNameInput" maxlength="10" placeholder="NAME (MAX 10)">
+            <button id="startGameButton" class="arcade-button">START SHIFT</button>
+        </div>
+    </div>
+
+    <div class="game-wrapper" style="display:none;">
+        <div class="game-container arcade-border">
+            <div class="hud arcade-hud">
+                <h2 class="arcade-title">FORKLIFT FURY</h2>
+                <div class="hud-section player-info">
+                    <strong>OPERATOR:</strong> <span id="playerNameDisplay"></span>
+                </div>
+                <div class="hud-section timer">
+                    <strong>TIME:</strong> <span id="timer-info">0.0</span>
+                </div>
+                <div class="hud-section task-display">
+                    <strong>MISSION:</strong> <span id="task-info">AWAITING ORDERS</span>
+                </div>
+                <div class="hud-section mini-monitor">
+                    <h4>TARGET BAY:</h4>
+                    <div id="target-bay-monitor">- - -</div>
+                </div>
+                <div class="hud-section progress-tracker">
+                    <strong>LOADS:</strong>
+                    <div id="progress-bar-container">
+                        <div class="progress-segment" data-package="1"></div>
+                        <div class="progress-segment" data-package="2"></div>
+                        <div class="progress-segment" data-package="3"></div>
+                    </div>
+                </div>
+                 <div class="hud-section leaderboard-container">
+                    <h4>HIGH SCORES:</h4>
+                    <ul id="leaderboard-list">
+                        <li>NO SCORES YET</li>
+                    </ul>
+                </div>
+            </div>
+            <canvas id="gameCanvas"></canvas>
+        </div>
+         <div class="instructions arcade-instructions">
+            <p><strong>CONTROLS:</strong> ARROWS = MOVE. SHIFT = BOOST. ENTER = ACTION.</p>
+            <p><strong>OBJECTIVE:</strong> DELIVER 3 PACKAGES TO ASSIGNED BAYS! FASTEST TIME!</p>
+        </div>
+    </div>
+
+    {/* --- Overlay Controls for Mobile --- */}
+    <div id="overlay-controls" class="overlay-controls-container">
+        <div class="dpad-area">
+            <button id="overlay-up" class="overlay-button arrow-up">▲</button>
+            <div class="dpad-center-row">
+                <button id="overlay-left" class="overlay-button arrow-left">◄</button>
+                <div class="dpad-spacer"></div>
+                <button id="overlay-right" class="overlay-button arrow-right">►</button>
+            </div>
+            <button id="overlay-down" class="overlay-button arrow-down">▼</button>
+        </div>
+        <div class="action-buttons-area">
+            <button id="overlay-shift" class="overlay-button action-shift">BOOST</button>
+            <button id="overlay-enter" class="overlay-button action-enter">ACTION</button>
+        </div>
+    </div>
+
+
+    <div id="win-message-modal" class="modal" style="display:none;">
+         <div class="modal-content arcade-panel">
+            <h2>SHIFT COMPLETE!</h2>
+            <p class="win-player-name">OPERATOR: <span id="winPlayerName"></span></p>
+            <p class="win-final-time">FINAL TIME: <span id="final-time"></span></p>
+            <button id="playAgainButton" class="arcade-button">NEW OPERATOR</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
